@@ -25,7 +25,12 @@
   "homepage": "https://github.com/TargetedEntropy/mineflayer-kitbot#readme",
   "devDependencies": {
     "mineflayer-kitbot": "file:.",
-    "standard": "^17.0.0",
-    "mocha": "^10.0.0"
+    "mocha": "^10.0.0",
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.9.0",
+    "mineflayer": "^4.8.1",
+    "mineflayer-pathfinder": "^2.4.2"
   }
 }
