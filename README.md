@@ -1,24 +1,22 @@
-# prismarine-template
-[![NPM version](https://img.shields.io/npm/v/prismarine-template.svg?color=success&label=npm%20package&logo=npm)](http://npmjs.com/package/prismarine-template)
-[![Build Status](https://img.shields.io/github/workflow/status/PrismarineJS/prismarine-template/CI.svg?label=CI&logo=github&logoColor=lightgrey)](https://github.com/PrismarineJS/prismarine-template/actions?query=workflow%3A%22CI%22)
-[![Try it on gitpod](https://img.shields.io/static/v1.svg?label=try&message=on%20gitpod&color=brightgreen&logo=gitpod)](https://gitpod.io/#https://github.com/PrismarineJS/prismarine-template)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/PrismarineJS)](https://github.com/sponsors/PrismarineJS)
+# Mineflayer-Kitbot
 
-[![Official Discord](https://img.shields.io/static/v1.svg?label=OFFICIAL&message=DISCORD&color=blue&logo=discord&style=for-the-badge)](https://discord.gg/GsEFRM8)
+A kitbot for Minecraft to deliver shulkers to players on Anarchy servers that support Teleport.
 
+## Requirements
 
-A template repository to make it easy to create new prismarine repo
+* NodeJs
+* Minecraft account with Microsoft Auth
+
+## Installation
+
+* Install NodeJS
+* Download Repo
+* Install Packages
+* Edit config.json
+* Run the bot
 
 ## Usage
 
-```js
-const template = require('prismarine-template')
-
-template.helloWorld()
+```sh
+node kitbot.js
 ```
-
-## API
-
-### helloWorld()
-
-Prints hello world
