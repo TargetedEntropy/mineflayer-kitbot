@@ -1,22 +1,12 @@
 const config = require('./config.json')
 const mineflayer = require('mineflayer')
-const { listenerCount } = require('process')
-const prefix = config.prefix
 const { pathfinder, Movements } = require('mineflayer-pathfinder')
 const { GoalXZ } = require('mineflayer-pathfinder').goals
 const mcData = require('minecraft-data')('1.12.2')
-const colors = require('colors')
-// const prettyMilliseconds = require("pretty-ms");
-const tpsPlugin = require('mineflayer-tps')(mineflayer)
-const fetch = require('node-fetch')
-const roundToHundredth = (value) => {
-  return Number(value.toFixed(2))
-}
 
 // Discord
 const Discord = require('discord.js')
 const { Client, GatewayIntentBits } = require('discord.js')
-const { Console } = require('console')
 
 const client = new Client({
   intents: [
@@ -32,7 +22,7 @@ const client = new Client({
 })
 client.commands = new Discord.Collection()
 client.on('ready', () => {
-  console.log('Kitbot online!'.blue)
+  console.log('Kitbot online!')
   client.user.setActivity('Kitbot ', { type: 'PLAYING' })
 })
 client.login(config.token)
@@ -55,19 +45,19 @@ function bindEvents (bot) {
   //= ================
   bot.once('login', () => {
     setTimeout(() => {
-      console.log('──────────────────────────────────────────'.blue)
+      console.log('──────────────────────────────────────────')
     }, 0)
     setTimeout(() => {
-      console.log('Logged in as: '.green + `${bot.username}`.yellow)
+      console.log('Logged in as: ' + `${bot.username}`)
     }, 1)
     setTimeout(() => {
-      console.log('Server: '.green + `${options.host}`.yellow)
+      console.log('Server: ' + `${options.host}`)
     }, 2)
     setTimeout(() => {
-      console.log('Port: '.green + `${options.port}`.yellow)
+      console.log('Port: ' + `${options.port}`)
     }, 3)
     setTimeout(() => {
-      console.log('──────────────────────────────────────────'.blue)
+      console.log('──────────────────────────────────────────')
     }, 4)
     client.channels.cache.get(config.channelID).send(`${bot.username} Online!`)
   })
@@ -86,7 +76,7 @@ function bindEvents (bot) {
     }
   })
   bot.on('kicked', function (reason) {
-    console.log(`Bot kicked for ${reason}`.red)
+    console.log(`Bot kicked for ${reason}`)
     setTimeout(relog, 30000)
   })
   bot.on('error', (err) => {

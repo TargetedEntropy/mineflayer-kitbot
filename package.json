@@ -1,5 +1,5 @@
 {
-  "name": "prismarine-template",
+  "name": "mineflayer-kitbot",
   "version": "1.0.0",
   "description": "A template repository to make it easy to create new prismarine repo",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PrismarineJS/prismarine-template.git"
+    "url": "git+https://github.com/TargetedEntropy/mineflayer-kitbot.git"
   },
   "keywords": [
     "prismarine",
@@ -20,12 +20,17 @@
   "author": "Romain Beaumont",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/PrismarineJS/prismarine-template/issues"
+    "url": "https://github.com/TargetedEntropy/mineflayer-kitbot/issues"
   },
-  "homepage": "https://github.com/PrismarineJS/prismarine-template#readme",
+  "homepage": "https://github.com/TargetedEntropy/mineflayer-kitbot#readme",
   "devDependencies": {
-    "prismarine-template": "file:.",
-    "standard": "^17.0.0",
-    "mocha": "^10.0.0"
+    "mineflayer-kitbot": "file:.",
+    "mocha": "^10.0.0",
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.9.0",
+    "mineflayer": "^4.8.1",
+    "mineflayer-pathfinder": "^2.4.2"
   }
 }

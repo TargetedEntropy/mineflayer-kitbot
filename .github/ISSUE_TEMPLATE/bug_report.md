@@ -7,14 +7,14 @@ assignees: ''
 
 ---
 
-- [ ] The [readme](https://github.com/PrismarineJS/prismarine-template/README.md) doesn't contain a resolution to my issue 
-- [ ] The [example](https://github.com/PrismarineJS/prismarine-template/example.js) doesn't contain a resolution to my issue 
+- [ ] The [readme](https://github.com/TargetedEntropy/mineflayer-kitbot/README.md) doesn't contain a resolution to my issue 
+- [ ] The [example](https://github.com/TargetedEntropy/mineflayer-kitbot/example.js) doesn't contain a resolution to my issue 
 
 <!-- To mark the checkbox, insert `x` into it: [x] -->
 
 ## Versions
  - node: #.#.#
- - prismarine-template: #.#.#
+ - mineflayer-kitbot: #.#.#
 
 ## Detailed description of a problem
 A clear and concise description of what the problem is.
