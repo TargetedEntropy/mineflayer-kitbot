@@ -1,0 +1,25 @@
+{
+  "minecraft": {
+    "host": "anarchy.example.com",
+    "port": 25565,
+    "username": "you@example.com",
+    "auth": "microsoft",
+    "version": false,
+    "profilesFolder": null
+  },
+  "discord": {
+    "token": "",
+    "channelId": ""
+  },
+  "kit": {
+    "pickup": { "x": 100, "z": -200 },
+    "home": { "x": 96, "z": -200 },
+    "trigger": "!kit",
+    "cooldownMs": 60000,
+    "pickupTimeoutMs": 60000,
+    "acceptTimeoutMs": 30000,
+    "returnTimeoutMs": 15000
+  },
+  "owners": ["00000000-0000-0000-0000-000000000000"],
+  "logLevel": "info"
+}

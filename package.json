@@ -1,9 +1,13 @@
 {
   "name": "mineflayer-kitbot",
   "version": "1.0.0",
-  "description": "A template repository to make it easy to create new prismarine repo",
+  "description": "A Minecraft kit bot that delivers kits to players on teleport-enabled anarchy servers, with Discord notifications.",
   "main": "index.js",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
+    "start": "node index.js",
     "test": "mocha --reporter spec --exit",
     "pretest": "npm run lint",
     "lint": "standard",
@@ -14,23 +18,33 @@
     "url": "git+https://github.com/TargetedEntropy/mineflayer-kitbot.git"
   },
   "keywords": [
-    "prismarine",
-    "template"
+    "minecraft",
+    "mineflayer",
+    "bot",
+    "kitbot",
+    "anarchy",
+    "discord"
   ],
-  "author": "Romain Beaumont",
+  "author": "TargetedEntropy",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TargetedEntropy/mineflayer-kitbot/issues"
   },
   "homepage": "https://github.com/TargetedEntropy/mineflayer-kitbot#readme",
+  "files": [
+    "index.js",
+    "lib/",
+    "config.sample.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "mineflayer": "^4.39.0",
+    "mineflayer-pathfinder": "^2.4.5"
+  },
   "devDependencies": {
-    "mineflayer-kitbot": "file:.",
     "mocha": "^12.0.1",
     "standard": "^17.0.0"
-  },
-  "dependencies": {
-    "discord.js": "^14.9.0",
-    "mineflayer": "^4.8.1",
-    "mineflayer-pathfinder": "^2.4.2"
   }
 }

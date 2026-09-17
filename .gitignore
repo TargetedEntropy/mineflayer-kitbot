@@ -91,5 +91,5 @@ lerna-debug.log
 
 # System Files
 .DS_Store
-Thumbs.dbconfig.json
+Thumbs.db
 config.json
