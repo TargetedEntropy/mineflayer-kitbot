@@ -1,9 +1,12 @@
 'use strict'
 
+const path = require('path')
+
 const { loadConfig } = require('./lib/config')
 const { createLogger } = require('./lib/logger')
 const { Notifier } = require('./lib/notifier')
 const { Supervisor } = require('./lib/kitbot')
+const { State } = require('./lib/state')
 
 async function main () {
   const bootLog = createLogger({ level: 'info' })
@@ -30,7 +33,22 @@ async function main () {
   // Discord is best-effort and must not gate the bot coming online.
   await notifier.start()
 
-  const supervisor = new Supervisor({ config, notifier, logger: log })
+  // Runtime state (currently just the home set via the `sethome` whisper)
+  // lives beside config.json and takes precedence over it.
+  const state = new State({ file: path.join(__dirname, 'kitbot-state.json'), logger: log })
+  state.load()
+
+  const savedHome = state.get('kitHome')
+  if (savedHome) {
+    if (config.kit.home) {
+      log.info(`Using home saved via sethome (x=${savedHome.x} z=${savedHome.z}), overriding config.json`)
+    } else {
+      log.info(`Using home saved via sethome: x=${savedHome.x} z=${savedHome.z}`)
+    }
+    config.kit.home = savedHome
+  }
+
+  const supervisor = new Supervisor({ config, notifier, logger: log, state })
   supervisor.start()
 
   let shuttingDown = false

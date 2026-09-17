@@ -79,7 +79,8 @@ sign in once and the token is cached for subsequent runs.
 ```
 
 `kit.home` is optional. When set, the bot warns if it respawns far from where
-you said home is — a cheap way to notice a moved or broken bed.
+you said home is — a cheap way to notice a moved or broken bed. You do not have
+to write it by hand: see [Setting home in-game](#setting-home-in-game).
 
 ### Environment variables
 
@@ -119,11 +120,38 @@ the server's player list, so impostor usernames don't help.
 
 | Whisper | Effect |
 | --- | --- |
+| `sethome` | Save the bot's current position as home |
+| `sethome <x> <z>` | Save explicit coordinates as home |
+| `home` | Report the saved home and how far the bot is from it |
+| `clearhome` | Forget the saved home and fall back to `config.json` |
 | `queue` | Report who's being served and how many are waiting |
 | `tpa` | Have the bot request a teleport to you |
 | `kill` / `stop` | Shut the bot down (no reconnect) |
+| `help` | List these commands |
 
 Owners also get their incoming `/tpa` requests auto-accepted.
+
+### Setting home in-game
+
+Rather than looking up coordinates by hand, stand the bot on its bed and whisper
+it `sethome`:
+
+```
+/msg KitBot sethome
+KitBot whispers: Home set to x=96 z=-200
+```
+
+This takes effect immediately and is saved to `kitbot-state.json` next to
+`config.json`, so it survives restarts. Your `config.json` is never rewritten —
+a saved home simply takes precedence over `kit.home`, and the bot says so at
+startup:
+
+```
+INFO  Using home saved via sethome (x=96 z=-200), overriding config.json
+```
+
+Whisper `clearhome` to drop the saved value and go back to whatever
+`config.json` says.
 
 ## Operational notes
 
@@ -135,6 +163,9 @@ Owners also get their incoming `/tpa` requests auto-accepted.
   finishes connecting are buffered, not lost.
 * **Shutdown** on `SIGINT`/`SIGTERM` quits the Minecraft connection and closes
   Discord cleanly.
+* **Files the bot writes:** only `kitbot-state.json`, holding what `sethome`
+  saved. Deleting it is safe — the bot falls back to `config.json`. Both it and
+  `config.json` are gitignored.
 
 ## Development
 
@@ -153,6 +184,7 @@ Layout:
 | `lib/kitbot.js` | The bot itself plus the reconnect supervisor |
 | `lib/kit-queue.js` | Delivery queue and per-player cooldowns |
 | `lib/notifier.js` | Discord notifications |
+| `lib/state.js` | Small persisted store for runtime state (the saved home) |
 | `lib/wait.js` | Timeout/abort-aware event helpers |
 | `lib/logger.js` | Leveled logging |
 
