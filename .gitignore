@@ -93,3 +93,6 @@ lerna-debug.log
 .DS_Store
 Thumbs.db
 config.json
+
+# Runtime state written by the bot (home set via the sethome command)
+kitbot-state.json
